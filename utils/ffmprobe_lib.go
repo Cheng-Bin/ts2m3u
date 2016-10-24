@@ -3,7 +3,6 @@ package utils
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"os/exec"
 )
 
@@ -16,35 +15,18 @@ type Format struct {
 	Duration string `json:duration`
 }
 
-func ExecMul(datas []string) {
-	//files = make([]TSFile, 0, 10)
-	sig := make(chan TSFile, 100)
-	done := make(chan bool)
+func ExecMul(datas []string) (tss []TSFile) {
 
-	length := 25
+	length := len(datas)
 	for i := 0; i < length; i++ {
-		go Execute(datas[i], sig, done, i, length)
+		result := Execute(datas[i])
+		tss = append(tss, result)
 	}
 
-	var flag bool
-	for {
-		select {
-		case result := <-sig:
-			fmt.Println(result.Format.Filename)
-		case flag = <-done:
-			close(sig)
-			close(done)
-			break
-		}
-
-		if flag {
-			break
-		}
-	}
-
+	return
 }
 
-func Execute(file string, result chan TSFile, done chan bool, cur int, length int) {
+func Execute(file string) TSFile {
 	cmd := exec.Command("ffprobe", "-print_format", "json", "-show_format", "-show_streams", "-i", file)
 	var out bytes.Buffer
 	cmd.Stdout = &out
@@ -58,9 +40,5 @@ func Execute(file string, result chan TSFile, done chan bool, cur int, length in
 	checkError(err)
 	tsFile.Format.Filename = file
 
-	result <- tsFile
-
-	if cur == length-1 {
-		done <- true
-	}
+	return tsFile
 }

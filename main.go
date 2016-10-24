@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -24,14 +25,15 @@ func main() {
 	files, err := utils.GetFiles(dirPath)
 	check(err)
 
-	utils.ExecMul(files)
+	tsFiles := utils.ExecMul(files)
 
-	// m3u8Writer := utils.NewM3U8(true)
-	// for _, item := range datas {
-	// 	m3u8Writer.WriteTs(item.Format.Duration, item.Format.Filename)
-	// }
-	// m3u8Writer.WriterEnd()
+	m3u8Writer := utils.NewM3U8(true)
+	for _, item := range tsFiles {
+		m3u8Writer.WriteTs(item.Format.Duration, item.Format.Filename)
+	}
+	m3u8Writer.WriterEnd()
+	m3u8Data := m3u8Writer.GetM3U8()
 
-	// m3u8string := m3u8Writer.GetM3U8()
-	// fmt.Println(m3u8string)
+	fmt.Println(m3u8Data)
+	utils.SaveM3U8("vod", m3u8Data)
 }

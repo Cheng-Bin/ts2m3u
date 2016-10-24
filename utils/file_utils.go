@@ -25,3 +25,10 @@ func GetFiles(path string) (files []string, err error) {
 
 	return files, err
 }
+
+func SaveM3U8(title string, m3u8Data string) {
+	f, err := os.OpenFile(title+".m3u8", os.O_CREATE|os.O_RDWR|os.O_APPEND, os.ModePerm)
+	checkError(err)
+	defer f.Close()
+	f.WriteString(m3u8Data)
+}

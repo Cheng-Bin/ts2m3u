@@ -27,8 +27,6 @@ curl -o 1476253663132.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/a
 curl -o 1476253666869.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253666869.ts
 curl -o 1476253670934.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253670934.ts
 curl -o 1476253674897.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253674897.ts
-
-
 curl -o 1476253678834.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253678834.ts
 curl -o 1476253682843.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253682843.ts
 curl -o 1476253686877.ts https://s3.cn-north-1.amazonaws.com.cn/lycam-resource/apps/OCX3LBO15L/f43da350-646a-11e6-863f-235779d5d5d1/streams/64538050-9031-11e6-bc6d-992056b5147e/hls/1476253686877.ts
